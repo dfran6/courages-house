@@ -28,7 +28,7 @@ function App() {
         position: [5, 20, 20],
         fov: 60,
 
-      }}>
+      }dpr={[1, 1.5]}>
 
         <Suspense fallback={null}>
           <ScrollControls
@@ -39,7 +39,7 @@ function App() {
             <Scene onProgressChange={setProgress} />
 
           </ScrollControls>
-          {/* <EffectComposer>
+          <EffectComposer>
             <Bloom
               intensity={0.4}
               luminanceThreshold={0.7}
@@ -54,7 +54,7 @@ function App() {
             />
 
             <Noise opacity={0.02} />
-          </EffectComposer> */}
+          </EffectComposer>
         </Suspense>
 
         <color attach="background" args={["#050505"]} />
