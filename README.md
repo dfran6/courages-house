@@ -68,6 +68,7 @@ src/
 ├── utils/
 ├── App.jsx
 └── main.jsx
+```
 
 ##🚀 Running Locally
 
