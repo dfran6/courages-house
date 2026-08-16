@@ -96,7 +96,7 @@ export function AudioController() {
 
             fadeIn();
 
-            console.log("🔊 Ambient sound activated");
+            console.log(" Ambient sound activated");
         } catch (error) {
             console.log(
                 "Audio activation was blocked:",

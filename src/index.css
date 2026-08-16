@@ -65,6 +65,7 @@ body {
 canvas {
   position: fixed !important;
   inset: 0;
+  touch-action: pan-y;
 }
 
 .ui {
@@ -292,7 +293,7 @@ canvas {
   flex-direction: column;
   justify-content: center;
   gap: 6px;
-
+  pointer-events: auto;
   border: 0;
   background: transparent;
   cursor: pointer;
@@ -437,7 +438,7 @@ canvas {
 .audio-button {
   position: fixed;
   z-index: 100;
-  
+
 
   bottom: 40px;
   right: 8vw;
