@@ -31,11 +31,15 @@ function App() {
       }}>
 
         <Suspense fallback={null}>
-          <ScrollControls pages={4} damping={0.16}>
+          <ScrollControls
+            pages={4}
+            damping={0.16}
+            enabled
+            distance={1}>
             <Scene onProgressChange={setProgress} />
 
           </ScrollControls>
-          <EffectComposer>
+          {/* <EffectComposer>
             <Bloom
               intensity={0.4}
               luminanceThreshold={0.7}
@@ -50,7 +54,7 @@ function App() {
             />
 
             <Noise opacity={0.02} />
-          </EffectComposer>
+          </EffectComposer> */}
         </Suspense>
 
         <color attach="background" args={["#050505"]} />

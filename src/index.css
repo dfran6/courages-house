@@ -295,8 +295,6 @@ canvas {
 
   border: 0;
   background: transparent;
-
-  pointer-events: auto;
   cursor: pointer;
 }
 
@@ -439,7 +437,7 @@ canvas {
 .audio-button {
   position: fixed;
   z-index: 100;
-  pointer-events: auto;
+  
 
   bottom: 40px;
   right: 8vw;
