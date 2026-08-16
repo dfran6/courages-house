@@ -40,7 +40,6 @@ export function Scene({ onProgressChange }) {
         intensity={1200}
         distance={200}
         color={"#080718"}
-        castShadow
       />
 
 

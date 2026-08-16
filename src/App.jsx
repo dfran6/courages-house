@@ -36,9 +36,6 @@ function App() {
             damping={0.16}
             enabled
             distance={1}>
-            style={{
-              touchAction: "pan-y",
-            }}
             <Scene onProgressChange={setProgress} />
 
           </ScrollControls>
