@@ -33,7 +33,7 @@ function App() {
         <Suspense fallback={null}>
           <ScrollControls
             pages={4}
-            damping={0}
+            damping={0.16}
             enabled
             distance={1}>
             <Scene onProgressChange={setProgress} />

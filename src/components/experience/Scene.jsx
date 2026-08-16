@@ -61,7 +61,7 @@ export function Scene({ onProgressChange }) {
 
       <OrbitControls
         ref={controlsRef}
-        enabled={false}
+        enabled={scroll.offset > 0.94}
         enableDamping
         enablePan={false}
         enableZoom
