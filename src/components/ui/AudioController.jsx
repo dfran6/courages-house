@@ -65,10 +65,16 @@ export function AudioController() {
             // Smooth easing
             const eased =
                 1 - Math.pow(1 - progress, 3);
+                
+            wind.volume = Math.max(
+                0,
+                Math.min(1, targetWind * eased)
+            );
 
-            wind.volume = targetWind * eased;
-            crickets.volume = targetCrickets * eased;
-
+            crickets.volume = Math.max(
+                0,
+                Math.min(1, targetCrickets * eased)
+            );
             if (progress < 1) {
                 fadeFrameRef.current =
                     requestAnimationFrame(animate);

@@ -2,27 +2,11 @@ import { useRef } from "react";
 import { House } from "./House";
 import { OrbitControls, Stars, Environment } from '@react-three/drei'
 import { ExperienceController } from "./ExperienceController";
-import RotatingBox from "../../box";
-import { useScroll } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
+import { CAMERA_TARGET } from "./camera";
 
-
-export function Scene({ onProgressChange }) {
+export function Scene({ progress }) {
   const controlsRef = useRef();
-  const scroll = useScroll();
-  const lastProgress = useRef(0);
-
-  useFrame(() => {
-    const progress = scroll.offset;
-
-    if (Math.abs(progress - lastProgress.current) > 0.01) {
-      lastProgress.current = progress;
-
-      onProgressChange?.(progress);
-    }
-  });
-
-
+  
 
   return (
     <>
@@ -54,21 +38,24 @@ export function Scene({ onProgressChange }) {
       />
       <Environment preset="night" />
 
-      <House />
-      <RotatingBox />
+      <mesh position={CAMERA_TARGET}>
+        <sphereGeometry args={[5, 16, 16]} />
+        <meshStandardMaterial color="#ffffff" emissive="#ffffff" emissiveIntensity={1} />
+      </mesh>
 
-      <ExperienceController controlsRef={controlsRef} />
+      <House progress={progress} />
+
+
+      <ExperienceController controlsRef={controlsRef} progress={progress} />
 
       <OrbitControls
         ref={controlsRef}
-        enabled={scroll.offset > 0.94}
+        enabled={false}
         enableDamping
-        enablePan={false}
-        enableZoom
-        rotateSpeed={0.7}
-        zoomSpeed={0.8}
-        minDistance={25}
-        maxDistance={210}
+        enablePan
+        enableZoom ={true}
+      // minDistance={25}
+      // maxDistance={210}
       />
 
     </>

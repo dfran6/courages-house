@@ -1,7 +1,7 @@
 import { Suspense } from 'react'
 import { useState } from "react";
 import { Canvas } from '@react-three/fiber'
-import { ScrollControls } from '@react-three/drei'
+// import { ScrollControls } from '@react-three/drei'
 import { Scene } from './components/experience/Scene'
 
 
@@ -13,7 +13,7 @@ import { LoadingScreen } from "./components/ui/LoadingScreen";
 import { Header } from './components/ui/Header';
 import { EffectComposer, Bloom, Vignette, Noise } from '@react-three/postprocessing'
 
-
+import { ScrollExperience } from "./components/experience/ScrollExperience";
 
 
 function App() {
@@ -27,18 +27,13 @@ function App() {
       <Canvas camera={{
         position: [5, 20, 20],
         fov: 60,
+        
 
-      }}>
+      }} dpr={[1, 1.5]}>
 
         <Suspense fallback={null}>
-          <ScrollControls
-            pages={4}
-            damping={0.16}
-            enabled
-            distance={1}>
-            <Scene onProgressChange={setProgress} />
 
-          </ScrollControls>
+          <Scene progress={progress} />
           {/* <EffectComposer>
             <Bloom
               intensity={0.4}
@@ -61,6 +56,7 @@ function App() {
         <fog attach="fog" args={["#050505", 0, 250]} />
       </Canvas>
 
+      <ScrollExperience onProgressChange={setProgress} />
 
       <Header />
 
