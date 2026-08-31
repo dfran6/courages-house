@@ -7,7 +7,7 @@ import { useScroll } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
 
-export function Scene({ onProgressChange }) {
+export function Scene({ onProgressChange, backgroundColor,fogColor, fogStrength }) {
   const controlsRef = useRef();
   const scroll = useScroll();
   const lastProgress = useRef(0);
@@ -52,7 +52,13 @@ export function Scene({ onProgressChange }) {
         fade
         speed={0.5}
       />
-      <Environment preset="night" />
+      {/* <Environment preset="night" /> */}
+      {/* <Environment preset="sunset" /> */}
+
+
+      <color attach="background" args={[backgroundColor]} />
+      <fog attach="fog" args={[fogColor, 0, fogStrength]} />
+      {/* <fog attach="fog" args={[fogColor, 0, 250]} /> */}
 
       <House />
       <RotatingBox />
@@ -70,10 +76,11 @@ export function Scene({ onProgressChange }) {
         enableDamping
         enablePan={false}
         enableZoom
-        rotateSpeed={0.7}
-        zoomSpeed={0.8}
+        rotateSpeed={0.8}
+        zoomSpeed={0.9}
         minDistance={25}
         maxDistance={210}
+        maxPolarAngle={Math.PI /2.2}
       />
 
     </>

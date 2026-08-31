@@ -10,8 +10,8 @@ function RotatingBox() {
   return (
     <mesh ref={meshRef} position={[0, -22, 0]} receiveShadow>
       <boxGeometry args={[5000,50,5000]} />
-      <meshStandardMaterial color="#060000" roughness={1} metalness={0} />
-    
+      <meshStandardMaterial color="#000000" roughness={1} metalness={0} />
+    {/* this is the floor */}
     </mesh>
   )
 }

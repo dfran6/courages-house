@@ -12,6 +12,7 @@ import { ExplorePrompt } from "./components/ui/ExplorePrompt";
 import { LoadingScreen } from "./components/ui/LoadingScreen";
 import { Header } from './components/ui/Header';
 import { EffectComposer, Bloom, Vignette, Noise } from '@react-three/postprocessing'
+import { EnvironmentControls } from './components/experience/EnvironmentControls';
 
 
 
@@ -19,6 +20,14 @@ import { EffectComposer, Bloom, Vignette, Noise } from '@react-three/postprocess
 function App() {
 
   const [progress, setProgress] = useState(0);
+
+  const [backgroundColor, setBackgroundColor] =
+  useState("#050505");
+
+const [fogColor, setFogColor] =
+  useState("#050505");
+
+const [fogStrength,  setFogStrength] =useState(250)
 
   return (
     <main className="app">
@@ -37,7 +46,13 @@ function App() {
             damping={0.16}
             enabled
             distance={1}>
-            <Scene onProgressChange={setProgress} />
+
+            <Scene 
+            onProgressChange={setProgress}  
+            backgroundColor={backgroundColor}
+            fogColor={fogColor} 
+            fogStrength={fogStrength}
+            />
 
           </ScrollControls>
           <EffectComposer>
@@ -58,9 +73,16 @@ function App() {
           </EffectComposer>
         </Suspense>
 
-        <color attach="background" args={["#050505"]} />
-        <fog attach="fog" args={["#050505", 0, 250]} />
+
       </Canvas>
+        <EnvironmentControls 
+        backgroundColor={backgroundColor}
+        fogColor={fogColor}
+        fogStrength={fogStrength}
+        onBackgroundChange={setBackgroundColor}
+        onFogChange={setFogColor}
+        onFogStrengthChange={setFogStrength}
+        />
 
 
       <Header />

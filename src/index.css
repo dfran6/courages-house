@@ -465,3 +465,172 @@ canvas {
 .audio-button:hover {
   transform: scale(1.1);
 }
+
+
+/* Environment Controls */
+
+.environment-controls {
+  position: fixed;
+  right: 3vw;
+  top: 100px;
+  z-index: 50;
+
+  color: white;
+  font-family: Arial, sans-serif;
+
+  pointer-events: auto;
+}
+
+.environment-toggle {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+
+  background: rgba(5, 5, 5, 0.5);
+  backdrop-filter: blur(10px);
+
+  color: white;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.environment-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+}
+
+.environment-panel {
+  position: absolute;
+  top: 54px;
+  right: 0;
+
+  width: 220px;
+
+  padding: 20px;
+
+  background: rgba(5, 5, 5, 0.85);
+  backdrop-filter: blur(16px);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 8px;
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+.environment-panel > p {
+  margin: 0 0 18px;
+
+  font-size: 9px;
+  letter-spacing: 0.2em;
+
+  opacity: 0.5;
+}
+
+.environment-panel label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 14px;
+
+  font-size: 12px;
+  letter-spacing: 0.04em;
+
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.environment-panel input[type="color"] {
+  width: 32px;
+  height: 24px;
+
+  padding: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+
+  background: transparent;
+
+  cursor: pointer;
+}
+.environment-panel input[type="number"] {
+  width: 45px;
+  height: 24px;
+
+  padding: 2px;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+
+  background: transparent;
+
+  cursor: pointer;
+}
+/* Mobile */
+
+@media (max-width: 768px) {
+  .environment-controls {
+    right: 20px;
+    top: 82px;
+  }
+
+  .environment-panel {
+    width: 200px;
+  }
+}
+.environment-divider {
+  width: 100%;
+  height: 1px;
+
+  margin: 20px 0;
+
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.environment-presets {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.preset-button {
+  width: 100%;
+
+  padding: 9px 10px;
+
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 11px;
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.preset-button:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
